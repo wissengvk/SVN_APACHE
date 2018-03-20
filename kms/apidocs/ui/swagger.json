@@ -1,0 +1,418 @@
+{
+  "swagger": "2.0",
+  "info" : {
+    "description" : "<h1>Key Management Service<\/h1><p>Key Management Service<\/p>",
+    "license" : {
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html",
+      "name" : "Apache 2.0 License"
+    },
+    "version" : "1.1.0-SNAPSHOT",
+    "title" : "Key Management Service"
+  },
+  "schemes" : [],
+  "tags" : [
+    {
+      "name" : "KMS"
+      ,
+      "description" : "Class providing the REST bindings, via Jersey, for the KMS."
+    }
+  ],
+  "definitions" : {
+  },
+  "paths": {
+    "\/v1/keys" : {
+      "post" : {
+        "tags" : [ "KMS" ],
+        "description" : "",
+        "operationId" : "resource_KMS_createKey_POST",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [
+          {
+            "name" : "body",
+            "in" : "body",
+            "schema" : {
+"description" : "",
+"type" : "string"
+            },
+            "description" : ""
+          }
+        ],
+        "responses" : {
+          "201" : {
+            "schema" : {
+"description" : "",
+"type" : "string"
+            },
+            "headers" : {
+            },
+            "examples" : {
+            },
+            "description" : "Success"
+          }
+        }
+      }
+    }
+    ,
+    "\/v1/key/{name}" : {
+      "delete" : {
+        "tags" : [ "KMS" ],
+        "description" : "",
+        "operationId" : "resource_KMS_deleteKey_DELETE",
+        "produces" : [ "*/*" ],
+        "parameters" : [
+          {
+            "name" : "name",
+            "in" : "path",
+            "required" : true,
+            "type" : "string",
+            "description" : ""
+          }
+        ],
+        "responses" : {
+          "204" : {
+            "headers" : {
+            },
+            "examples" : {
+            },
+            "description" : "Success"
+          }
+        }
+      }
+      ,
+      "get" : {
+        "tags" : [ "KMS" ],
+        "description" : "",
+        "operationId" : "resource_KMS_getKey_GET",
+        "produces" : [ "*/*" ],
+        "parameters" : [
+          {
+            "name" : "name",
+            "in" : "path",
+            "required" : true,
+            "type" : "string",
+            "description" : ""
+          }
+        ],
+        "responses" : {
+          "200" : {
+            "headers" : {
+            },
+            "examples" : {
+            },
+            "description" : "Success"
+          }
+        }
+      }
+      ,
+      "post" : {
+        "tags" : [ "KMS" ],
+        "description" : "",
+        "operationId" : "resource_KMS_rolloverKey_POST",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [
+          {
+            "name" : "name",
+            "in" : "path",
+            "required" : true,
+            "type" : "string",
+            "description" : ""
+          },
+          {
+            "name" : "body",
+            "in" : "body",
+            "schema" : {
+"description" : "",
+"type" : "string"
+            },
+            "description" : ""
+          }
+        ],
+        "responses" : {
+          "201" : {
+            "schema" : {
+"description" : "",
+"type" : "string"
+            },
+            "headers" : {
+            },
+            "examples" : {
+            },
+            "description" : "Success"
+          }
+        }
+      }
+    }
+    ,
+    "\/v1/keys/metadata" : {
+      "get" : {
+        "tags" : [ "KMS" ],
+        "description" : "",
+        "operationId" : "resource_KMS_getKeysMetadata_GET",
+        "produces" : [ "application/json" ],
+        "parameters" : [
+          {
+            "name" : "key",
+            "in" : "query",
+            "type" : "array",
+            "items" : {
+            "type" : "string"
+            },
+            "collectionFormat" : "multi",
+            "description" : ""
+          }
+        ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+"description" : "",
+"type" : "string"
+            },
+            "headers" : {
+            },
+            "examples" : {
+            },
+            "description" : "Success"
+          }
+        }
+      }
+    }
+    ,
+    "\/v1/keys/names" : {
+      "get" : {
+        "tags" : [ "KMS" ],
+        "description" : "",
+        "operationId" : "resource_KMS_getKeyNames_GET",
+        "produces" : [ "application/json" ],
+        "parameters" : [
+        ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+"description" : "",
+"type" : "string"
+            },
+            "headers" : {
+            },
+            "examples" : {
+            },
+            "description" : "Success"
+          }
+        }
+      }
+    }
+    ,
+    "\/v1/keyversion/{versionName}" : {
+      "get" : {
+        "tags" : [ "KMS" ],
+        "description" : "",
+        "operationId" : "resource_KMS_getKeyVersion_GET",
+        "produces" : [ "application/json" ],
+        "parameters" : [
+          {
+            "name" : "versionName",
+            "in" : "path",
+            "required" : true,
+            "type" : "string",
+            "description" : ""
+          }
+        ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+"description" : "",
+"type" : "string"
+            },
+            "headers" : {
+            },
+            "examples" : {
+            },
+            "description" : "Success"
+          }
+        }
+      }
+    }
+    ,
+    "\/v1/key/{name}/_currentversion" : {
+      "get" : {
+        "tags" : [ "KMS" ],
+        "description" : "",
+        "operationId" : "resource_KMS_getCurrentVersion_GET",
+        "produces" : [ "application/json" ],
+        "parameters" : [
+          {
+            "name" : "name",
+            "in" : "path",
+            "required" : true,
+            "type" : "string",
+            "description" : ""
+          }
+        ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+"description" : "",
+"type" : "string"
+            },
+            "headers" : {
+            },
+            "examples" : {
+            },
+            "description" : "Success"
+          }
+        }
+      }
+    }
+    ,
+    "\/v1/key/{name}/_eek" : {
+      "get" : {
+        "tags" : [ "KMS" ],
+        "description" : "",
+        "operationId" : "resource_KMS_generateEncryptedKeys_GET",
+        "produces" : [ "application/json" ],
+        "parameters" : [
+          {
+            "name" : "name",
+            "in" : "path",
+            "required" : true,
+            "type" : "string",
+            "description" : ""
+          },
+          {
+            "name" : "eek_op",
+            "in" : "query",
+            "type" : "string",
+            "description" : ""
+          },
+          {
+            "name" : "num_keys",
+            "in" : "query",
+            "default" : "1",
+            "type" : "integer",
+            "description" : ""
+          }
+        ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+"description" : "",
+"type" : "string"
+            },
+            "headers" : {
+            },
+            "examples" : {
+            },
+            "description" : "Success"
+          }
+        }
+      }
+    }
+    ,
+    "\/v1/key/{name}/_metadata" : {
+      "get" : {
+        "tags" : [ "KMS" ],
+        "description" : "",
+        "operationId" : "resource_KMS_getMetadata_GET",
+        "produces" : [ "application/json" ],
+        "parameters" : [
+          {
+            "name" : "name",
+            "in" : "path",
+            "required" : true,
+            "type" : "string",
+            "description" : ""
+          }
+        ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+"description" : "",
+"type" : "string"
+            },
+            "headers" : {
+            },
+            "examples" : {
+            },
+            "description" : "Success"
+          }
+        }
+      }
+    }
+    ,
+    "\/v1/key/{name}/_versions" : {
+      "get" : {
+        "tags" : [ "KMS" ],
+        "description" : "",
+        "operationId" : "resource_KMS_getKeyVersions_GET",
+        "produces" : [ "application/json" ],
+        "parameters" : [
+          {
+            "name" : "name",
+            "in" : "path",
+            "required" : true,
+            "type" : "string",
+            "description" : ""
+          }
+        ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+"description" : "",
+"type" : "string"
+            },
+            "headers" : {
+            },
+            "examples" : {
+            },
+            "description" : "Success"
+          }
+        }
+      }
+    }
+    ,
+    "\/v1/keyversion/{versionName}/_eek" : {
+      "post" : {
+        "tags" : [ "KMS" ],
+        "description" : "",
+        "operationId" : "resource_KMS_decryptEncryptedKey_POST",
+        "consumes" : [ "*/*" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [
+          {
+            "name" : "versionName",
+            "in" : "path",
+            "required" : true,
+            "type" : "string",
+            "description" : ""
+          },
+          {
+            "name" : "eek_op",
+            "in" : "query",
+            "type" : "string",
+            "description" : ""
+          },
+          {
+            "name" : "body",
+            "in" : "body",
+            "type" : "file",
+            "description" : ""
+          }
+        ],
+        "responses" : {
+          "201" : {
+            "schema" : {
+"description" : "",
+"type" : "string"
+            },
+            "headers" : {
+            },
+            "examples" : {
+            },
+            "description" : "Success"
+          }
+        }
+      }
+    }
+  }
+}
